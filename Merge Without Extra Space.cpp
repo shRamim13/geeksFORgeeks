@@ -11,13 +11,11 @@ public:
         int i = m - 1; // Correct the index to m-1
         int j = 0;
 
-        // Swap elements while a[i] > b[j]
         while (i >= 0 && j < n && a[i] > b[j])
         {
             swap(a[i--], b[j++]);
         }
 
-        // Sort both arrays to maintain sorted order
         sort(a.begin(), a.end());
         sort(b.begin(), b.end());
     }
