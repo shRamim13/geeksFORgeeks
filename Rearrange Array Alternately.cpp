@@ -4,25 +4,26 @@ public:
     void rearrange(vector<int> &arr)
     {
         sort(arr.begin(), arr.end());
-        int mxIndx = arr.size() - 1;
-        int minIndx = 0;
-        int maxVal = arr[mxIndx] + 1;
-        for (int i = 0; i < arr.size(); i++)
+        int n = arr.size();
+        int maxi = arr[n - 1] + 1;
+        int lowIndx = 0;
+        int highIndx = n - 1;
+        for (int i = 0; i < n; i++)
         {
             if (i % 2 == 0)
             {
-                arr[i] = arr[i] + (arr[mxIndx] % maxVal) * maxVal;
-                mxIndx--;
+                arr[i] = arr[i] + (arr[highIndx] % maxi) * maxi;
+                highIndx--;
             }
             else
             {
-                arr[i] = arr[i] + (arr[minIndx] % maxVal) * maxVal;
-                minIndx++;
+                arr[i] = arr[i] + (arr[lowIndx] % maxi) * maxi;
+                lowIndx++;
             }
         }
-        for (int i = 0; i < arr.size(); i++)
+        for (int i = 0; i < n; i++)
         {
-            arr[i] = arr[i] / maxVal;
+            arr[i] = arr[i] / maxi;
         }
     }
 };
