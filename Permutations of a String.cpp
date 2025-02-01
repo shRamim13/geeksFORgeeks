@@ -24,7 +24,6 @@ public:
     vector<string> findPermutation(string &s)
     {
         vector<string> v;
-        sort(s.begin(), s.end());
         solve(s, 0, v);
         return v;
     }
