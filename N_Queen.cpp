@@ -92,3 +92,42 @@ public:
         return ans;
     }
 };
+
+/*
+class Solution {
+public:
+    vector<vector<string>> ans;
+    bool isSafe(vector<int>& v, int row, int col) {
+        for (int i = 0; i < row; i++) {
+            int colVal = v[i];
+            if (colVal == col || abs(colVal - col) == abs(i - row)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    void solve(vector<int> v, int row, int n) {
+        if (row == n) {
+            vector<string> ssd(n, string(n, '.'));
+            for (int i = 0; i < n; i++) {
+                ssd[i][v[i]] = 'Q';
+            }
+            ans.push_back(ssd);
+            return;
+        }
+        for (int col = 0; col < n; col++) {
+            if (isSafe(v, row, col)) {
+                v[row] = col;
+                solve(v, row + 1, n);
+                v[row] = 0;
+            }
+        }
+    }
+    vector<vector<string>> solveNQueens(int n) {
+        vector<int> v(n, 0);
+        solve(v, 0, n);
+        return ans;
+    }
+};
+
+*/
