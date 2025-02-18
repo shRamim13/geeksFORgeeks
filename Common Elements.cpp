@@ -30,7 +30,24 @@ public:
         return v;
     }
 };
+/*
+without duplicate
+vector<int> commonElements(vector<int> &a, vector<int> &b) {
+        unordered_set<int> s(a.begin(), a.end()); // Store elements of 'a'
+        set<int> common; // Use set to avoid duplicates and keep sorted order
 
+        for (int num : b) {
+            if (s.count(num)) {
+                common.insert(num);
+            }
+        }
+
+        return vector<int>(common.begin(), common.end());
+    }
+};
+
+
+*/
 //{ Driver Code Starts.
 
 int main()
