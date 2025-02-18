@@ -7,7 +7,7 @@ public:
         // vector<vector<int>>v;
         for (int i = 0; i < arr.size(); i++)
         {
-            // if(i>0&&arr[i]==ar[i+1]){continue;}
+            // if(i>0&&arr[i]==ar[i-1]){continue;}
             int l = i + 1;
             int r = arr.size() - 1;
             while (l < r)
