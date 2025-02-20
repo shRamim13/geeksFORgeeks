@@ -1,0 +1,75 @@
+//{ Driver Code Starts
+// Initial function template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+class Solution
+{
+
+public:
+    bool findSwapValues(vector<int> &a, vector<int> &b)
+    {
+        int s1 = accumulate(a.begin(), a.end(), 0);
+        int s2 = accumulate(b.begin(), b.end(), 0);
+        if ((s1 - s2) % 2)
+        {
+            return false;
+        }
+        unordered_map<int, int> mp;
+        for (int x : a)
+        {
+            mp[x] = 1;
+        }
+        int x = (s1 - s2) / 2;
+        for (int y : b)
+        {
+            if (mp.find(y + x) != mp.end())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main()
+{
+    int test_case;
+    cin >> test_case;
+    cin.ignore();
+    while (test_case--)
+    {
+
+        int d;
+        vector<int> arr, brr, crr;
+        string input;
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number)
+        {
+            arr.push_back(number);
+        }
+        getline(cin, input);
+        ss.clear();
+        ss.str(input);
+        while (ss >> number)
+        {
+            crr.push_back(number);
+        }
+        // d = crr[0];
+        int n = arr.size();
+        Solution ob;
+        bool ans = ob.findSwapValues(arr, crr);
+        if (ans)
+            cout << "true" << endl;
+        else
+            cout << "false" << endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
