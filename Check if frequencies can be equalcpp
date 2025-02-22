@@ -1,0 +1,75 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+// User function template for C++
+class Solution
+{
+public:
+    bool check(vector<int> &v)
+    {
+        int s = -1;
+        for (int i = 0; i < 26; i++)
+        {
+            if (v[i] > 0)
+            {
+                if (s == -1)
+                {
+                    s = v[i];
+                }
+                else if (s != v[i])
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    bool sameFreq(string &s)
+    {
+        vector<int> v(26, 0);
+        for (auto x : s)
+        {
+            v[x - 'a']++;
+        }
+        if (check(v))
+        {
+            return true;
+        }
+        for (int i = 0; i < 26; i++)
+        {
+            if (v[i] > 0)
+            {
+                v[i]--;
+                if (check(v))
+                {
+                    return true;
+                }
+                v[i]++;
+            }
+        }
+        return false;
+    }
+};
+
+//{ Driver Code Starts.
+int main()
+{
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t--)
+    {
+        string s;
+
+        getline(cin, s);
+        Solution ob;
+        cout << (ob.sameFreq(s) ? "true" : "false") << endl;
+
+        cout << "~"
+             << "\n";
+    }
+}
+
+// } Driver Code Ends
